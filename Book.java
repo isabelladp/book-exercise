@@ -12,6 +12,8 @@ class Book
     private String author;
     private String title;
     private int pages;
+    private String refNumber;
+    private int borrowed;
 
     /**
      * Set the author and title fields when this object
@@ -22,6 +24,8 @@ class Book
         author = bookAuthor;
         title = bookTitle;
         pages = bookPages;
+        refNumber = "";
+        borrowed = 0;
     }
     
     public String getAuthor()
@@ -37,6 +41,42 @@ class Book
     public int getPages()
     {
         return pages;
+    }
+   
+    public void setRefNumber(String ref)
+    {
+        if(ref.length() < 3)
+            System.out.println("Error. Enter more than 3 characters");
+        else
+            refNumber = ref;
+    }
+    
+    public String getRefNumber()
+    {
+        return refNumber;
+    }
+    
+    public void printDetails()
+    {
+        System.out.println("Title: " + title);
+        System.out.println("Author: " + author);
+        System.out.println("Pages: " + pages);
+        System.out.println("Times Borrowed: " + borrowed);
+        if(refNumber.length() > 0)
+            System.out.println("Reference Number: " + refNumber);
+        else 
+            System.out.println("ZZZ");
+
+    }
+    
+    public void borrow()
+    {
+        borrowed += borrowed;
+    }
+    
+    public int getBorrowed()
+    {
+        return borrowed;
     }
     // Add the methods here ...
 }
